@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-s01bweo589_93kd!pk!$io+!**tdqtc84q#tp=&-8y431@b=v0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -74,21 +74,19 @@ WSGI_APPLICATION = "cloudmart_backend.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES =  {
+DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": os.environ.get("DB_NAME", "cloudmart_db"),
-        "USER": os.environ.get("DB_USER", "root"),
-        "PASSWORD": os.environ.get("Tejaswini@21", ""),
-        "HOST": os.environ.get("DB_HOST", "127.0.0.1"),
+        "NAME": os.environ.get("DB_NAME", "cloudmart"),
+        "USER": os.environ.get("DB_USER", "cloudmart_user"),
+        "PASSWORD": os.environ.get("DB_PASSWORD", "cloudmart_pass"),
+        "HOST": os.environ.get("DB_HOST", "db"),
         "PORT": os.environ.get("DB_PORT", "3306"),
         "OPTIONS": {
             "charset": "utf8mb4",
         },
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
