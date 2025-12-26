@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudmart-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudmart-backend
+  template:
+    metadata:
+      labels:
+        app: cloudmart-backend
+    spec:
+      containers:
+        - name: cloudmart-backend
+          image: tejaswinidkumar/cloudmart-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DB_HOST
+              value: "dummy"   # we will replace with MySQL service later
+            - name: DB_NAME
+              value: "cloudmart"
+            - name: DB_USER
+              value: "cloudmart_user"
+            - name: DB_PASSWORD
+              value: "cloudmart_pass"
+            - name: DB_PORT
+              value: "3306"
+
